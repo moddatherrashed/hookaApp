@@ -61,7 +61,6 @@ const bottomTabNavigator = createMaterialBottomTabNavigator({
 
 const AuthStackNavigator = createStackNavigator({
   SignInScreen: SignInScreen,
-  SignUpScreen: SignUpScreen,
 })
 
 const AuthNavigator = createSwitchNavigator({

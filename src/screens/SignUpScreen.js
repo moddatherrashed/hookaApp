@@ -1,53 +1,60 @@
 import React, { Component } from 'react'
-import { View, Text, Image,StatusBar } from 'react-native'
+import { View, Text } from 'react-native'
+import PropTypes from 'prop-types'
 import { Button, Item, Input, Label } from 'native-base'
 
-class SignUpScreen extends Component {
-    state = {}
-    static navigationOptions = {
-        header: null
-    }
-    render() {
-        return (
-            <View style={{ flex: 1, backgroundColor: 'white',marginTop: StatusBar.currentHeight  }}>
-                <View
-                    style={{
-                        flex: 0.4
-                    }}>
-                    <Image source={require('../assets/logo.png')} style={{ height: null, width: null, flex: 1, margin: 40 }} resizeMode="contain" />
-                </View>
+const SignUpScreen = (props) => {
+    return (
+        <View style={{ flex: 1, backgroundColor: 'white' }}>
+            <Text style={{ fontSize: 18, color: 'orange', padding: 20, alignSelf: 'center' }}>Welcome to Argeleh ! </Text>
 
-                <View style={{ flex: 0.6, alignItems: 'center' }} >
-                    <Text style={{ fontSize: 18, color: 'orange', padding: 5 }}>Sign in with mobile number</Text>
-                    <Item floatingLabel>
-                        <Label style={{ color: 'gray' }}>Mobile Number</Label>
-                        <Input
-                            keyboardType="numeric"
-                            style={{ fontSize: 20, padding: 10, color: 'orange', margin: 5 }}
-                            underlineColorAndroid='transparent' />
-                    </Item>
-                    <Item floatingLabel>
-                        <Label style={{ color: 'gray' }}>Password</Label>
-                        <Input
-                            style={{ fontSize: 20, padding: 10, color: 'orange', margin: 5 }}
-                            underlineColorAndroid='transparent' />
-                    </Item>
-                    <Button
-                        onPress={() => { this.props.navigation.navigate('tbaNavigator') }}
-                        style={{
-                            backgroundColor: 'orange',
-                            justifyContent: 'center',
-                            alignSelf: 'center',
-                            width: 200,
-                            margin: 40,
-                        }} >
-                        <Text style={{ fontWeight: '700', color: 'white' }}>Sign In</Text>
-                    </Button>
-                    <Text style={{ color: 'gray', alignItems: 'flex-end', margin: 20 }}>don't you have an account?  <Text style={{ color: 'orange' }}>Sign Up</Text></Text>
-                </View>
+            <View style={{ padding: 10 }}>
+                <Item floatingLabel >
+                    <Label style={{ color: 'gray', margin: 10 }}>First name</Label>
+                    <Input
+                        keyboardType="numeric"
+                        style={{ fontSize: 20, padding: 10, color: 'orange', margin: 10 }}
+                        underlineColorAndroid='transparent'
+                        onChangeText={props.onFirstNameChange}
+                    />
+                </Item>
+                <Item floatingLabel >
+                    <Label style={{ color: 'gray', margin: 10 }}>Last Name</Label>
+                    <Input
+                        keyboardType="numeric"
+                        style={{ fontSize: 20, padding: 10, color: 'orange', margin: 10 }}
+                        underlineColorAndroid='transparent'
+                        onChangeText={props.onLastNameChnage} />
+                </Item>
+                <Item floatingLabel >
+                    <Label style={{ color: 'gray', margin: 10 }}>Email</Label>
+                    <Input
+                        keyboardType="numeric"
+                        style={{ fontSize: 20, padding: 10, color: 'orange', margin: 10 }}
+                        underlineColorAndroid='transparent'
+                        onChangeText={props.onEmailChange} />
+                </Item>
             </View>
-        );
-    }
+            <Button
+                onPress={props.onUpdateProfile}
+                style={{
+                    backgroundColor: 'orange',
+                    justifyContent: 'center',
+                    alignSelf: 'center',
+                    width: 200,
+                    margin: 40,
+                }}>
+                <Text style={{ fontWeight: '700', color: 'white' }}>Sign up</Text>
+            </Button>
+        </View>
+    )
 }
+
+SignUpScreen.propTypes = {
+    onFirstNameChange: PropTypes.func,
+    onLastNameChnage: PropTypes.func,
+    onEmailChange: PropTypes.func,
+    onUpdateProfile: PropTypes.func
+};
 
 export default SignUpScreen;
