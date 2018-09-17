@@ -1,4 +1,4 @@
-package com.hookaapp;
+package net.devloops.argeeleh;
 
 import android.app.Application;
 
